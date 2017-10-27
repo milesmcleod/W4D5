@@ -7,5 +7,15 @@ module ApplicationHelper
     token.html_safe
   end
 
+  def ugly_lyrics(lyrics)
+    array = lyrics.split(". ")
+    html = "<pre>"
+    array.each do |row|
+      html << " &#9835 #{h(row.downcase)}\n\n"
+    end
+    html << "</pre>"
+    html.html_safe
+  end
+
 
 end
