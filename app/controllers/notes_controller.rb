@@ -3,7 +3,6 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
     @note.user_id = current_user.id
-    byebug
     if @note.save
       redirect_to track_url(params[:note][:track_id])
     else

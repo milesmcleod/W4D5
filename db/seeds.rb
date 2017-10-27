@@ -33,3 +33,14 @@
     end
   end
 end
+
+
+user = User.new(
+  email: "123" ,
+  password_digest: BCrypt::Password.create("password"),
+  session_token: SecureRandom::urlsafe_base64,
+  activation_token: SecureRandom::urlsafe_base64,
+  activated: true,
+  admin: true
+  )
+user.save

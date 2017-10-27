@@ -10,8 +10,12 @@ class SessionsController < ApplicationController
       params[:user][:password]
     )
     if @user
-      login!(@user)
-      redirect_to bands_url
+      if @user.activated
+        login!(@user)
+        redirect_to bands_url
+      else
+        redirect_to purgatory_url
+      end
     else
       flash.now[:errors] = ["invalid login credentials"]
       render :new
