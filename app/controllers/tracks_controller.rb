@@ -1,5 +1,7 @@
 class TracksController < ApplicationController
 
+  before_action :require_logged_in
+
   def show
     @track = Track.find(params[:id])
     render :show

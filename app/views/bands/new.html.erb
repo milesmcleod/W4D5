@@ -1,14 +1,17 @@
-<div class="form-thing">
+<div class="outer-form">
 
   <h1>Add a Band</h1>
 
-  <form class="form-thing" action="/bands" method="post">
-
+  <form class="outer-form" action="/bands" method="post">
     <%= auth_token %>
-    <label>name:
-      <input type="text" name="band[name]">
-    </label>
-
+    <div class="form-thing">
+      <div class="labels">
+        <label for="name">name:  </label>
+      </div>
+      <div class="inputs">
+        <input id="name" type="text" name="band[name]">
+      </div>
+    </div>
     <input type="submit" name="Add Band!">
 
   </form>

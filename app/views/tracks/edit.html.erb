@@ -1,8 +1,8 @@
-<div class="form-thing">
+<div class="outer-form">
 
   <h1>Edit a Track</h1>
 
-  <form class="form-thing" action=" <%= track_url(@track) %> " method="post">
+  <form class="track-form" action=" <%= track_url(@track) %> " method="post">
     <input type="hidden" name="_method" value="PATCH">
 
     <%= auth_token %>

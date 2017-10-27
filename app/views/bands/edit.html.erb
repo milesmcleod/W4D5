@@ -1,16 +1,18 @@
-<div class="form-thing">
+<div class="outer-form">
 
   <h1>Edit <%= @band.name %> </h1>
 
-  <form class="form-thing" action=" <%= band_url(@band) %> " method="post">
+  <form class="outer-form" action=" <%= band_url(@band) %> " method="post">
     <input type="hidden" name="_method" value="PATCH">
-
     <%= auth_token %>
-    
-    <label>name:
-      <input type="text" name="band[name]">
-    </label>
-
+    <div class="form-thing">
+      <div class="labels">
+        <label for="name">name:  </label>
+      </div>
+      <div class="inputs">
+        <input id="name" type="text" name="band[name]" value=" <%= @band.name %> ">
+      </div>
+    </div>
     <input type="submit" name="Update Band!">
 
   </form>
