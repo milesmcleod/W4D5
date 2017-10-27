@@ -7,6 +7,8 @@
 <h2>lyrics:</h2>
 <%= ugly_lyrics(track.lyrics) %>
 <br>
-<%= link_to "delete this funky track", track_url(track), method: :delete %>
-<br>
-<%= link_to "edit this funky track", edit_track_url(track)%>
+  <% if current_user.admin == true %>
+    <%= link_to "delete this funky track", track_url(track), method: :delete %>
+    <br>
+    <%= link_to "edit this funky track", edit_track_url(track)%>
+  <% end %>

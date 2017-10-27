@@ -6,6 +6,8 @@
 <% end %>
 </ul>
 <br>
-<%= link_to "delete this funky band", band_url(band), method: :delete %>
-<br>
-<%= link_to "edit this funky band", edit_band_url(band)%>
+  <% if current_user.admin == true %>
+    <%= link_to "delete this funky band", band_url(band), method: :delete %>
+    <br>
+    <%= link_to "edit this funky band", edit_band_url(band)%>
+  <% end %>

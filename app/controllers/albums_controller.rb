@@ -1,6 +1,7 @@
 class AlbumsController < ApplicationController
 
   before_action :require_logged_in
+  before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @albums = Album.all

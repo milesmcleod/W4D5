@@ -8,6 +8,11 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(session_token: session[:session_token])
   end
 
+  def require_admin
+    return true if current_user && current_user.admin == true
+    render text: "No dice. Not admin."
+  end
+
   def login!(user)
     user.reset_session_token!
     session[:session_token] = user.session_token
