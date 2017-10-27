@@ -1,0 +1,19 @@
+
+<div class="form-thing">
+  <h1>Log In!</h1>
+  <form class="form-thing" action="/session" method="post">
+
+    <%= auth_token %>
+
+    <label>email:
+      <input type="text" name="user[email]">
+    </label>
+
+    <label>password:
+      <input type="password" name="user[password]">
+    </label>
+    <input type="submit" name="Log In!">
+
+  </form>
+
+</div>

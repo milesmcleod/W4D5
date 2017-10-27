@@ -1,0 +1,39 @@
+<div class="form-thing">
+
+  <h1>Add a Track</h1>
+
+  <form class="form-thing" action="/tracks" method="post">
+
+    <%= auth_token %>
+
+    <label>title:
+      <input type="text" name="track[title]">
+    </label>
+    <br>
+    <label>album:
+      <select name="track[album_id]">
+        <option value="" selected disabled>Select Album</option>
+        <% @albums.each do |album| %>
+          <option value="<%= album.id %>"><%= album.title %></option>
+        <% end %>
+      </select>
+    </label>
+    <br>
+    <label>track number:
+      <input type="text" name="track[ord]">
+    </label>
+    <br>
+    <label>Regular Track
+      <input type="radio" name="track[bonus?]" value="false">
+    </label>
+    <label>Bonus Track
+      <input type="radio" name="track[bonus?]" value="true">
+    </label>
+    <br>
+    <textarea name="track[lyrics]" rows="8" cols="80"></textarea>
+    <br>
+    <input type="submit" name="Add Track!">
+
+  </form>
+
+</div>

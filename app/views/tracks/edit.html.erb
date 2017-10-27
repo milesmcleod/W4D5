@@ -1,0 +1,39 @@
+<div class="form-thing">
+
+  <h1>Edit a Track</h1>
+
+  <form class="form-thing" action=" <%= track_url(@track) %> " method="post">
+    <input type="hidden" name="_method" value="PATCH">
+
+    <%= auth_token %>
+
+    <label>title:
+      <input type="text" name="track[title]" value="<%= @track.title %>">
+    </label>
+    <br>
+    <label>album:
+      <select name="track[album_id]">
+        <% @albums.each do |album| %>
+          <option value="<%= album.id %>" <%= 'selected' if @track.album == album %> ><%= album.title %></option>
+        <% end %>
+      </select>
+    </label>
+    <br>
+    <label>track number:
+      <input type="text" name="track[ord]" value=" <%= @track.ord %> ">
+    </label>
+    <br>
+    <label>Regular Track
+      <input type="radio" name="track[bonus?]" value="false" <%= "checked" if !@track.bonus? %> >
+    </label>
+    <label>Bonus Track
+      <input type="radio" name="track[bonus?]" value="true" <%= "checked" if @track.bonus? %> >
+    </label>
+    <br>
+    <textarea name="track[lyrics]" rows="8" cols="80"><%= @track.lyrics %></textarea>
+    <br>
+    <input type="submit" name="Edit Track!">
+
+  </form>
+
+</div>

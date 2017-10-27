@@ -1,0 +1,6 @@
+<h1> <%= album.title %> </h1>
+<h2> by: <%= album.band.name %> </h2>
+<h2> <%= album.year %> </h2>
+<h2> <%= album.studio? == true ? 'studio album' : 'live album' %> </h2>
+<br>
+<%= link_to "delete this funky album", album_url(album), method: :delete %>

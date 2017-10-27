@@ -1,0 +1,37 @@
+<div class="form-thing">
+
+  <h1>Add an Album</h1>
+
+  <form class="form-thing" action="/albums" method="post">
+
+    <%= auth_token %>
+
+    <label>title:
+      <input type="text" name="album[title]">
+    </label>
+    <br>
+    <label>year:
+      <input type="text" name="album[year]">
+    </label>
+    <br>
+    <label>band:
+      <select name="album[band_id]">
+        <option value="" selected disabled>Select Band</option>
+        <% @bands.each do |band| %>
+          <option value="<%= band.id %>"><%= band.name %></option>
+        <% end %>
+      </select>
+    </label>
+    <br>
+    <label>Studio Album
+      <input type="radio" name="album[studio?]" value="true">
+    </label>
+    <label>Live Album
+      <input type="radio" name="album[studio?]" value="false">
+    </label>
+    <br>
+    <input type="submit" name="Add Band!">
+
+  </form>
+
+</div>

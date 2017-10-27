@@ -1,0 +1,7 @@
+<h1> <%= track.title %> </h1>
+<h2> artist: <%= track.band.name %>  </h2>
+<h2> album: <%= track.album.title %> </h2>
+<h2> track no. <%= track.ord %> </h2>
+<h2> <%= track.bonus? == true ? 'bonus track' : '' %> </h2>
+<br>
+<%= link_to "delete this funky track", track_url(track), method: :delete %>

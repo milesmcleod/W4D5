@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RecordLabel</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+
+    <header>
+      <div><h3>Extreme Logo</h3></div>
+      <h1>We Got The Music</h1>
+      <div class="main-links">
+        <% if !self.current_user %>
+          <div><%= link_to "Log In", new_session_url %></div>
+          <div><%= link_to "Sign Up", new_user_url %></div>
+        <% else %>
+          <%= link_to "Log Out", session_url, method: :delete %>
+        <% end %>
+      </div>
+    </header>
+
+    <ul>
+
+      <% flash[:errors].try(:each) do |err| %>
+        <li><%= err %></li>
+      <% end %>
+
+    </ul>
+
+    <%= yield %>
+
+  </body>
+</html>
