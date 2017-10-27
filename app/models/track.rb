@@ -9,4 +9,6 @@ class Track < ApplicationRecord
     through: :album,
     source: :band
 
+  has_many :notes
+
 end

@@ -5,3 +5,5 @@
 <h2> <%= track.bonus? == true ? 'bonus track' : '' %> </h2>
 <br>
 <%= link_to "delete this funky track", track_url(track), method: :delete %>
+<br>
+<%= link_to "edit this funky track", edit_track_url(track)%>

@@ -107,3 +107,23 @@ a:visited {
   flex-direction: column;
   width: 50%;
 }
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: lightgrey;
+}
+
+.nav div {
+  font-size: 14px;
+  margin: 8px 20px;
+  padding: 3px;
+  border: 1px solid white;
+  border-radius: 3px;
+  background: white;
+}
+
+ul {
+  list-style: decimal;
+}

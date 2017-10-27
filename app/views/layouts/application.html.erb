@@ -23,6 +23,15 @@
       </div>
     </header>
 
+    <div class="nav">
+      <div><%= link_to "Albums", albums_url %></div>
+      <div><%= link_to "Add Album", new_album_url %></div>
+      <div><%= link_to "Bands", bands_url %></div>
+      <div><%= link_to "Add Band", new_band_url %></div>
+      <div><%= link_to "Add Track", new_track_url %></div>
+    </div>
+
+
     <ul>
 
       <% flash[:errors].try(:each) do |err| %>
