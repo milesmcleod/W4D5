@@ -1,12 +1,11 @@
-<h3>notes</h3>
-<ul>
+
+<h3 class="note-line">notes</h3>
 <% track.notes.each do |note| %>
-  <li>
+<div class="individual-note">
     <h3>from: <%= note.user.email %></h3>
     <h4><%= note.body %></h4>
     <% if note.user == current_user %>
       <%= button_to "Delete Note", note_url(note.id), method: :delete %>
+      </div>
     <% end %>
-  </li>
 <% end %>
-</ul>

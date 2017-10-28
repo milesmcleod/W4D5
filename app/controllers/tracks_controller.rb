@@ -3,6 +3,11 @@ class TracksController < ApplicationController
   before_action :require_logged_in
   before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
 
+  def index
+    @tracks = Track.all.order(:title)
+    render :index
+  end
+
   def show
     @track = Track.find(params[:id])
     render :show
@@ -33,7 +38,7 @@ class TracksController < ApplicationController
   end
 
   def update
-    @albums = Album.all
+    @albums = Album.all.order(:title)
     @track = Track.find(params[:id])
     if @track.update_attributes(track_params)
       redirect_to album_url(@track.album_id)
@@ -47,6 +52,11 @@ class TracksController < ApplicationController
     @track = Track.find(params[:id])
     @track.delete
     redirect_to album_url(@track.album_id)
+  end
+
+  def search
+    @tracks = Track.where('UPPER(title) LIKE ?', "%#{flash[:searchvalue].upcase}%").order(:title)
+    render :index
   end
 
   private

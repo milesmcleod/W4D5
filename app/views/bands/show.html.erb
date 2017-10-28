@@ -1,1 +1,6 @@
-<%= render 'band', band: @band %>
+<h1 class="band-name"> <%= @band.name %> </h1>
+<section class="albums">
+  <% @band.albums.each do |album| %>
+    <%= render '/albums/album', album: album %>
+  <% end %>
+</section>

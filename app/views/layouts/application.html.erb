@@ -27,11 +27,28 @@
     <div class="nav">
       <div><%= link_to "Albums", albums_url %></div>
       <div><%= link_to "Bands", bands_url %></div>
+      <div><%= link_to "Tracks", tracks_url %></div>
+
       <% if current_user && current_user.admin == true %>
         <div><%= link_to "Add Album", new_album_url %></div>
         <div><%= link_to "Add Band", new_band_url %></div>
         <div><%= link_to "Add Track", new_track_url %></div>
       <% end %>
+
+      <div>
+        <form class="search" action="/search" method="post">
+          <%= auth_token %>
+          <select name="search[category]">
+            <option value="" selected disabled>search category</option>
+            <option value="bands">bands</option>
+            <option value="albums">albums</option>
+            <option value="tracks">tracks</option>
+            <option value="tags">tags</option>
+          </select>
+          <input type="text" name="search[value]" value="">
+          <input type="submit" name="" value="search">
+        </form>
+      </div>
     </div>
 
 
@@ -44,6 +61,10 @@
     </ul>
 
     <%= yield %>
+
+    <footer>
+      <p>don't look down here, it's too dangerous</p>
+    </footer>
 
   </body>
 </html>

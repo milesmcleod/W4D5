@@ -1,0 +1,7 @@
+<section class="tracks">
+  <% if @tracks.empty? %>
+    <h1><%= 'no tracks found' %></h1>
+  <% else %>
+    <%= render @tracks %>
+  <% end %>
+</section>

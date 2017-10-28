@@ -4,7 +4,7 @@ class AlbumsController < ApplicationController
   before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @albums = Album.all
+    @albums = Album.all.order(:title)
     render :index
   end
 
@@ -14,7 +14,7 @@ class AlbumsController < ApplicationController
   end
 
   def new
-    @bands = Band.all
+    @bands = Band.all.order(:name)
     render :new
   end
 
@@ -29,7 +29,7 @@ class AlbumsController < ApplicationController
   end
 
   def edit
-    @bands = Band.all
+    @bands = Band.all.order(:name)
     @album = Album.find(params[:id])
     render :edit
   end
@@ -48,6 +48,11 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
     @album.delete
     redirect_to albums_url
+  end
+
+  def search
+    @albums = Album.where('UPPER(title) LIKE ?', "%#{flash[:searchvalue].upcase}%").order(:title)
+    render :index
   end
 
   private

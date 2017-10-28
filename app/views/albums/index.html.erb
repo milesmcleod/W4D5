@@ -1,3 +1,7 @@
 <section class="albums">
-  <%= render @albums %>
+  <% if @albums.empty? %>
+    <h1><%= 'no albums found' %></h1>
+  <% else %>
+    <%= render @albums %>
+  <% end %>
 </section>

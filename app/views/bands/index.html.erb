@@ -1,3 +1,7 @@
 <section class="bands">
-  <%= render @bands %>
+  <% if @bands.empty? %>
+    <h1><%= 'no bands found' %></h1>
+  <% else %>
+    <%= render @bands %>
+  <% end %>
 </section>

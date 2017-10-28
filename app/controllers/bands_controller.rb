@@ -4,7 +4,7 @@ class BandsController < ApplicationController
   before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @bands = Band.all
+    @bands = Band.all.order(:name)
     render :index
   end
 
@@ -46,6 +46,11 @@ class BandsController < ApplicationController
     @band = Band.find(params[:id])
     @band.delete
     redirect_to bands_url
+  end
+
+  def search
+    @bands = Band.where('UPPER(name) LIKE ?', "%#{flash[:searchvalue].upcase}%").order(:name)
+    render :index
   end
 
   private
